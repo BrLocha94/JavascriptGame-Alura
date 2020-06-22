@@ -1,16 +1,29 @@
 let backgroundImage;
-let characterImage;
+let playerImage;
+
+let backgroundImage;
+let playerImage;
+
+let scenario;
+let player;
+let music;
 
 function preload(){
-  backgroundImage = loadImage("images/cenario/floresta.png");
-  characterImage = loadImage("images/personagem/correndo.png");
+  backgroundImage = loadImage("images/scenario/forest.png");
+  playerImage = loadImage("images/player/running.png");
+  music = loadSound("sounds/music_back.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  scenario = new Scenario(backgroundImage, 2);
+  player = new Player(playerImage);
+  frameRate(40);
+  music.loop();
 }
 
 function draw() {
-  background(backgroundImage);
-  image(characterImage, 0, 0);
+  scenario.show();
+  scenario.move();
+  player.show();
 }
