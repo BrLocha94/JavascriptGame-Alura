@@ -1,7 +1,16 @@
+let backgroundImage;
+let characterImage;
+
+function preload(){
+  backgroundImage = loadImage("images/cenario/floresta.png");
+  characterImage = loadImage("images/personagem/correndo.png");
+}
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-  background(220);
+  background(backgroundImage);
+  image(characterImage, 0, 0);
 }
